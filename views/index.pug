@@ -2,4 +2,11 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to #{ title }
+  ul 
+  each message in messages
+    li
+      p= moment(message.added).format("MMMM Do YYYY, h:mm:ss a")
+      p= `${message.user}:`
+      p= message.text
+  a(href="/new") New message
